@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BMI.MainPage">
+    <StackLayout Padding="10">
+        <!--מתג זכריות-->
+        
+        <Switch x:Name="GenderSwitch" HorizontalOptions="Center" OnColor="HotPink" ThumbColor="Blue"></Switch>
+        <Label HorizontalOptions="Center" Text="female->male"/>
+        <!--מד משקל-->
+        
+        <Stepper x:Name="whightStepper"
+            Maximum="200" Minimum="1" Increment="1"  HorizontalOptions="Center"/>
+        <Label HorizontalOptions="Center" 
+               Text="{Binding Source={x:Reference whightStepper}, Path=Value, StringFormat='Whight: {0:F0}kg'}"/>
+        <!--מד גובה-->
+        <Slider x:Name="hightSlider" Minimum="10" Maximum="250" WidthRequest="750"></Slider>
+        <Label HorizontalOptions="Center" 
+               Text="{Binding Source={x:Reference hightSlider}, Path=Value, StringFormat='hight: {0:F0}cm'}"/>
+        <!--כפתור חישוב-->
+        <Button Text="Click to BMI!" HorizontalOptions="Center" Clicked="ButtonClicked"/>
+        <Label x:Name="bmi" HorizontalOptions="Center" FontSize="Medium"></Label>
+    </StackLayout>
+    
+</ContentPage>
